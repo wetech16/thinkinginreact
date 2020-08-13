@@ -1,11 +1,15 @@
 import React from 'react'
 
-export default () => {
+export default ({filterText, inStockOnly}) => {
     return (
         <form>
-            <input type="text" placeholder="Search..." />
+        {/* E2-state */}
+            <input type="text" placeholder="Search..." value={filterText}/>
             <p>
-                <input type="checkbox" />
+                <input 
+                    type="checkbox"
+                    checked={inStockOnly}
+                />
                 {' '}
                 Only show products in stock
             </p>

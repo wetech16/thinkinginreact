@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import SearchBar from './view/SearchBar';
 import ProductTable from './view/ProductTable';
@@ -12,10 +12,21 @@ function App({products}) {
     {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
     {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
   ];
+  //E2-State
+  const [filterText, setFilter] = useState('');
+  const [inStockOnly, setInStock] = useState(false);
+
   return (
     <div className="App">
-        <SearchBar />
-        <ProductTable products={PRODUCTS} />
+        <SearchBar 
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        />
+        <ProductTable 
+          products={PRODUCTS} 
+          filterText={filterText} 
+          inStockOnly={inStockOnly}
+          />
     </div>
   );
 }
