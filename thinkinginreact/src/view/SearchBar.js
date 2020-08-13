@@ -9,13 +9,13 @@ export default ({filterText, inStockOnly, onFilterText, onInStockOnly}) => {
                 placeholder="Search..." 
                 value={filterText}
                 //E3-Inverse Data Flow Step1:apply updated value to inverse function
-                onChange={onFilterText(e.target.value)}
+                onChange={(e) => onFilterText(e.target.value)}
                 />
             <p>
                 <input 
                     type="checkbox"
                     checked={inStockOnly}
-                    onChange={onInStockOnly(e.target.value)}
+                    onChange={(e) => onInStockOnly(e.target.value)}
                 />
                 {' '}
                 Only show products in stock
