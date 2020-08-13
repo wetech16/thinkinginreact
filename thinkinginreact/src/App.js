@@ -16,11 +16,24 @@ function App({products}) {
   const [filterText, setFilter] = useState('');
   const [inStockOnly, setInStock] = useState(false);
 
+  //E3-useState: 
+  //Step1: create a function onNameState for useState
+  const onFilterText = (filterText) => {
+    setFilter(filterText);
+  }
+  const onInStockOnly = (inStockOnly) => {
+    setInStock(inStockOnly);
+  }
+
+
   return (
     <div className="App">
         <SearchBar 
         filterText={filterText}
         inStockOnly={inStockOnly}
+        //Step2: pass down the onNameState function
+        onFilterText={onFilterText}
+        onInStockOnly={onInStockOnly}
         />
         <ProductTable 
           products={PRODUCTS} 
