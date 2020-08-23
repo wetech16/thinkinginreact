@@ -2,11 +2,20 @@ import React from 'react'
 import ProductCategoryRow from '../components/ProductCategoryRow';
 import ProductRow from '../components/ProductRow';
 
-export default ({products}) => {
+export default ({products, filterText,inStockOnly}) => {
+    //E1-componets
     const rows = [];
     let lastCategory = null;
 
     products.forEach((product) => {
+        //E2-state
+        if (product.name.indexOf(filterText) === -1) {
+            return;
+        }
+        if (inStockOnly && !product.stocked) {
+            return;
+        }
+        //E1-componets
         if (product.category !== lastCategory) {
             rows.push(
                 <ProductCategoryRow 
